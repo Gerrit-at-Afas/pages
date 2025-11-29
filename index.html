@@ -312,6 +312,24 @@
             .puzzle h2 {
                 font-size: 1.2em;
             }
+
+            #herb-puzzle > div {
+                grid-template-columns: 1fr !important;
+            }
+
+            .herb-select {
+                min-width: 200px;
+                font-size: 1em;
+            }
+
+            .final-message {
+                font-size: 1.2em;
+            }
+
+            .final-message p[style*="font-size: 1.8em"] {
+                font-size: 1.4em !important;
+                word-break: break-word;
+            }
         }
     </style>
 </head>
@@ -377,7 +395,7 @@
                         <p>Sinterklaas heeft zes kruiden in zijn keuken, maar de etiketten zijn eraf gevallen! Klik op een kruid en kies het juiste etiket. Let goed op de aanwijzingen:</p>
                         
                         <div style="background: #FFFACD; padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #DAA520;">
-                            <p style="margin: 5px 0;">🔸 <strong>NEGRO CHILI</strong> staat twee posities rechts van <strong>DILLE</strong></p>
+                            <p style="margin: 5px 0;">🔸 <strong>NEGRO CHILI</strong> staat twee posities rechts/onder van <strong>DILLE</strong></p>
                             <p style="margin: 5px 0;">🔸 <strong>LAVENDEL</strong> staat op positie 1 of 3</p>
                             <p style="margin: 5px 0;">🔸 <strong>NOOTMUSKAAT</strong> staat naast <strong>DILLE</strong></p>
                             <p style="margin: 5px 0;">🔸 <strong>OREGANO</strong> en <strong>ORANJEBLOESEM</strong> staan op posities die samen 7 zijn</p>
@@ -582,6 +600,7 @@
             document.getElementById('puzzle1-screen').classList.add('active');
             document.getElementById('dot1').classList.add('active');
             currentPuzzle = 1;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function initGrid() {
@@ -661,6 +680,7 @@
                     document.getElementById('dot2').classList.add('active');
                     initGrid();
                     currentPuzzle = 2;
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }, 2000);
             } else {
                 feedback.innerHTML = '<p class="error">❌ Het woord klopt nog niet. Kijk naar de eerste letters van de kruiden in volgorde!</p>';
@@ -680,6 +700,7 @@
                     document.getElementById('puzzle3-screen').classList.add('active');
                     document.getElementById('dot3').classList.add('active');
                     currentPuzzle = 3;
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }, 1500);
             } else {
                 feedback.innerHTML = '<p class="error">❌ Dat is niet de juiste letter. Kijk goed naar het patroon!</p>';
@@ -697,6 +718,7 @@
                 setTimeout(() => {
                     document.getElementById('puzzle3-screen').classList.remove('active');
                     document.getElementById('final-screen').classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }, 1500);
             } else {
                 feedback.innerHTML = '<p class="error">❌ Helaas, dat klopt niet. Kijk nog eens goed naar het patroon!</p>';
